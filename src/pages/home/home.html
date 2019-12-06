@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar hideBakButton *navbar> </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-icon name="arrow-dropleft-circle" (click)="logout()"></ion-icon>
+     
+      
+  </div>
+
+  <div style="text-align: center;"><h4>System Frota</h4></div>
+
+<form (ngSubmit)="buscar()">
+  <ion-item>
+    <ion-input type="text" placeholder="Digite a placa" [(ngModel)]="pesquisa.placa" name="placa"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="pesquisa.motorista" placeholder="Digite o motorista"  name="motorista"></ion-textarea>
+  </ion-item>
+  <button ion-button type="submit" block>Buscar</button>
+
+  <ion-list *ngIf="showCar">
+    <ion-list-header>
+      <ion-label>Informações Gerais</ion-label>
+    </ion-list-header>
+    <ion-item>{{carro.modelo}}</ion-item>
+    <ion-item>Placa: {{carro.placa}}</ion-item>
+    <ion-item>Cor: {{carro.cor}}</ion-item>
+    <ion-item>Ano: {{carro.ano_modelo}}</ion-item>
+    <ion-item>Km: {{carro.descricao}}</ion-item>
+    <ion-item>Seguro: {{carro.seguradora}}</ion-item>
+    <ion-item>Ano renovação: {{carro.renavam}}</ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="showMotorista">
+    <ion-list-header>
+      <ion-label>Informações Motorista</ion-label>
+    </ion-list-header>
+    <ion-item>{{motorista.nome}}</ion-item>
+    <ion-item>Sexo: {{motorista.sexo}}</ion-item>
+    <ion-item>Nascimento: {{motorista.nascimento}}</ion-item>
+    <ion-item>CPF: {{motorista.cpf}}</ion-item>
+    <ion-item>RG: {{motorista.rg}}</ion-item>
+    <ion-item>PIS: {{motorista.pis}}</ion-item>
+  </ion-list>
+</form>
+
+</ion-content>
